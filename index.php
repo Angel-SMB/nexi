@@ -94,7 +94,7 @@ class ChatbotControllerGroq extends ResourceController
         }
 
         // Armar mensajes: system + últimos 10 turnos + mensaje actual
-        $messages = [['role' => 'system', 'content' => $this->getWebBridgeKnowledge()]];
+        $messages = [['role' => 'system', 'content' => $this->getInfinextKnowledge()]];
 
         $history = array_slice($history, -10);
         foreach ($history as $turn) {
