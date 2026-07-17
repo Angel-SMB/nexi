@@ -21,7 +21,7 @@ class ChatbotControllerGroq extends ResourceController
 
     private string $groqUrl   = 'https://api.groq.com/openai/v1/chat/completions';
     private string $groqModel = 'llama-3.3-70b-versatile';
-    private string $renderUrl = 'https://webbridge-ai.onrender.com';
+    private string $renderUrl = 'https://nexi-71nf.onrender.com';
 
     public function message()
     {
@@ -207,8 +207,8 @@ class ChatbotControllerGroq extends ResourceController
         try {
             $emailService = \Config\Services::email();
 
-            $emailService->setFrom('webbridgsolucions@gmail.com', 'WebBridge AI Chatbot');
-            $emailService->setTo('webbridgsolucions@gmail.com');
+            $emailService->setFrom('infinexttechnologies@gmail.com', 'Nexi AI');
+            $emailService->setTo('infinexttechnologies@gmail.com');
             $emailService->setSubject('Nueva Solicitud de ' . ucfirst($tipo) . ' desde Chatbot');
 
             $message = "
@@ -227,7 +227,7 @@ class ChatbotControllerGroq extends ResourceController
             <body>
                 <div class='container'>
                     <div class='header'>
-                        <h2>🤖 Nueva Solicitud desde WebBridge AI</h2>
+                        <h2>🤖 Nueva Solicitud desde Nexi AI</h2>
                     </div>
                     <div class='content'>
                         <p>Has recibido una nueva solicitud de <strong>" . ucfirst($tipo) . "</strong> a través del chatbot:</p>
@@ -258,7 +258,7 @@ class ChatbotControllerGroq extends ResourceController
                         </div>
 
                         <div class='footer'>
-                            <p>Este mensaje fue generado automáticamente por WebBridge AI Chatbot</p>
+                            <p>Este mensaje fue generado automáticamente por Nexi AI/p>
                             <p>📅 " . date('d/m/Y H:i:s') . "</p>
                         </div>
                     </div>
@@ -270,7 +270,7 @@ class ChatbotControllerGroq extends ResourceController
             $emailService->setMessage($message);
 
             if ($emailService->send()) {
-                log_message('info', 'Email enviado correctamente a webbridgsolucions@gmail.com');
+                log_message('info', 'Email enviado correctamente a infinexttechnologies@gmail.com');
                 return true;
             }
 
@@ -326,154 +326,133 @@ class ChatbotControllerGroq extends ResourceController
         }
     }
 
-    private function getSmartFallbackResponse(string $message): string
+        private function getSmartFallbackResponse(string $message): string
     {
         $lowerMessage = strtolower($message);
         $lowerMessage = $this->removeAccents($lowerMessage);
 
         // PROYECTOS REALIZADOS
-        if (preg_match('/(proyecto|portafolio|ejemplo|trabajo|plateria|cafeteria|dies|cca|campus)/i', $lowerMessage)) {
-            return "💼 **Proyectos Destacados de WebBridge Solutions:**\n\n" .
-                   "**1. Platería Futura** 💎\n" .
-                   "• E-commerce de joyería de plata\n" .
-                   "• Catálogo interactivo y carrito de compras\n" .
-                   "• Pagos en línea seguros con Stripe\n\n" .
-                   "**2. CCA Campus** 🎓\n" .
-                   "• Plataforma e-learning para capacitación automotriz\n" .
-                   "• Cursos en video, control de acceso de alumnos\n" .
-                   "• Pagos con tarjeta y transferencia bancaria\n\n" .
-                   "**3. Cafetería Universitaria** ☕\n" .
-                   "• Sistema de gestión con menú digital\n" .
-                   "• Chatbot con IA para pedidos automáticos\n" .
-                   "• Panel de administración de ventas\n\n" .
-                   "**4. DIES Seguridad** 🔒\n" .
-                   "• Catálogo digital de cajas fuertes\n" .
-                   "• Chatbot de atención integrado\n\n" .
-                   "**5. BridLux POS** 🧾 (producto propio)\n" .
-                   "• Punto de venta híbrido: local o en la nube\n\n" .
-                   "**¿Te interesa algo similar para tu negocio?** 🚀";
+        if (preg_match('/(proyecto|portafolio|ejemplo|trabajo|inaoe|oasis|car madness|juego)/i', $lowerMessage)) {
+            return "💼 **Proyectos Destacados de InfiNext:**\n\n" .
+                "**1. Gestión de Laboratorios (INAOE)** 🔬\n" .
+                "• Software de gestión y semi-automatización\n" .
+                "• Interfaz 3D y control para eficiencia eléctrica\n\n" .
+                "**2. Oasis AR** 📱\n" .
+                "• App móvil educativa con Realidad Aumentada\n" .
+                "• Exploración interactiva de culturas antiguas\n\n" .
+                "**3. Car Madness** 🎮\n" .
+                "• Videojuego 2D de plataformas y gamificación\n" .
+                "• Capacitación en seguridad industrial\n\n" .
+                "**4. Sistemas de Visión IA** 👁️\n" .
+                "• Modelos de tracking en emergencias y detección de baches\n\n" .
+                "**¿Te interesa desarrollar algo de este nivel?** 🚀";
         }
 
         // COTIZACIÓN / CITA
         if (preg_match('/(cotiz|presupuesto|agendar|cita|reunion|precio proyecto)/i', $lowerMessage)) {
-            return "📋 **Solicitar Cotización o Agendar Cita**\n\n" .
-                   "¡Excelente! Me encantaría ayudarte.\n\n" .
-                   "Para darte la mejor atención, necesito algunos datos:\n\n" .
-                   "**👤 Tu nombre**\n" .
-                   "**📧 Tu email**\n" .
-                   "**📞 Tu teléfono** (opcional)\n" .
-                   "**💬 Cuéntame sobre tu proyecto**\n\n" .
-                   "Por favor, proporciona esta información y te contactaremos en menos de 24 horas. 🚀\n\n" .
-                   "_Presiona el botón 'Solicitar Cotización' que aparecerá abajo._";
+            return "📋 **Solicitar Cotización o Asesoría**\n\n" .
+                "¡Excelente decisión! Para darte la mejor atención, necesito unos datos rápidos:\n\n" .
+                "**👤 Tu nombre**\n" .
+                "**📧 Tu email**\n" .
+                "**📞 Tu teléfono** (opcional)\n" .
+                "**💬 Breve descripción de tu idea**\n\n" .
+                "Por favor, proporciona esta información y te contactaremos en menos de 24 horas. 🚀\n\n" .
+                "_(También puedes usar el botón 'Cotización' en las opciones del chat)_";
         }
 
         // SOBRE LA EMPRESA
-        if (preg_match('/(que es|quienes son|sobre|acerca de).*(webbridge|empresa)/i', $lowerMessage)) {
-            return "🏢 **WebBridge Solutions** es una empresa de desarrollo web profesional en Puebla, México.\n\n" .
-                   "**Nos especializamos en:**\n" .
-                   "• Desarrollo web desde cero (NO plantillas)\n" .
-                   "• Sistemas de gestión y puntos de venta\n" .
-                   "• E-commerce y plataformas e-learning\n" .
-                   "• Chatbots con IA\n\n" .
-                   "¿Te gustaría conocer nuestros paquetes?";
+        if (preg_match('/(que es|quienes son|sobre|acerca de).*(infinext|empresa)/i', $lowerMessage)) {
+            return "🏢 **InfiNext** es una agencia de innovación tecnológica y desarrollo de software con sede en Puebla, México.\n\n" .
+                "**Nuestra especialidad:**\n" .
+                "• Desarrollo de Sistemas a la medida (Web, E-commerce, POS)\n" .
+                "• Integración de Inteligencia Artificial y Visión Computacional\n" .
+                "• Realidad Aumentada (AR) y Gamificación\n\n" .
+                "¿Te gustaría conocer nuestras soluciones base?";
         }
 
         // UBICACIÓN
         if (preg_match('/(donde|ubicacion|direccion|oficina)/i', $lowerMessage)) {
-            return "📍 **Ubicación:**\n\n" .
-                   "Puebla, México\n\n" .
-                   "**Contacto:**\n" .
-                   "📞 2761334864 (WhatsApp)\n" .
-                   "📧 webbridgsolucions@gmail.com\n" .
-                   "⏰ Lun-Vie 8:00 AM - 6:00 PM";
+            return "📍 **Ubicación y Alcance:**\n\n" .
+                "Tenemos sede en **Puebla, México**, pero desarrollamos proyectos a nivel nacional e internacional.\n\n" .
+                "**Contacto Directo:**\n" .
+                "📞 WhatsApp: 2217596585\n" .
+                "📧 infinexttechnologies@gmail.com\n" .
+                "⏰ Lunes a Viernes, 3:00 PM - 9:00 PM";
         }
 
-        // TIEMPOS
-        if (preg_match('/(cuanto tiempo|plazo|entrega|duracion)/i', $lowerMessage)) {
-            return "⏱️ **Tiempos de Desarrollo:**\n\n" .
-                   "• WebStart: 1-2 semanas\n" .
-                   "• WebPro: 2-3 semanas\n" .
-                   "• WebCorp: 3-4 semanas\n" .
-                   "• WebElite: 4-6 semanas\n" .
-                   "• WebShop: 6-8 semanas\n" .
-                   "• Sistemas a medida: según alcance\n\n" .
-                   "Siempre te damos un cronograma claro desde el inicio. ¿Tienes fecha límite?";
-        }
-
-        // BRIDLUX POS
-        if (preg_match('/(bridlux|punto de venta|pos|caja)/i', $lowerMessage)) {
-            return "🧾 **BridLux — Punto de Venta**\n\n" .
-                   "Nuestro sistema POS híbrido para negocios:\n\n" .
-                   "1. **BridLux Local UNICAJA** - \$7,800 MXN (pago único, hardware incluido)\n" .
-                   "2. **BridLux Local PRO** - \$10,100 MXN (pago único, mayor potencia)\n" .
-                   "3. **BridLux en la Nube** - \$900 MXN/mes (acceso desde cualquier lugar)\n\n" .
-                   "Procesa ventas, controla inventario en tiempo real y genera reportes. ¿Quieres una demostración?";
+        // TECNOLOGIAS Y TIEMPOS
+        if (preg_match('/(tecnologia|lenguaje|programa|tiempo|plazo|duracion)/i', $lowerMessage)) {
+            return "⚡ **Tecnologías y Tiempos:**\n\n" .
+                "**Stack Tecnológico:**\n" .
+                "• **Web:** Laravel, CodeIgniter 4, Laravel, Inertia, Next.js, PHP, JS, MySQL, MongoDB\n" .
+                "• **IA:** YOLO, MediaPipe, OpenCV\n" .
+                "• **3D/AR:** Unity, C#, Vuforia, Blender\n\n" .
+                "**Tiempos:** Dependen totalmente del alcance de tu proyecto. Siempre entregamos un cronograma claro antes de iniciar.\n\n" .
+                "¿Qué tipo de solución tienes en mente?";
         }
 
         // PRECIOS Y PAQUETES
-        if (preg_match('/(paquete|precio|costo|cuanto cuesta)/i', $lowerMessage)) {
-            return "📦 **Paquetes WebBridge:**\n\n" .
-                   "1. **WebStart** - \$4,000 MXN\n" .
-                   "2. **WebPro** - \$5,500 MXN\n" .
-                   "3. **WebCorp** - \$8,000 MXN\n" .
-                   "4. **WebElite** ⭐ - \$10,000 MXN\n" .
-                   "5. **WebShop** - \$15,000 MXN\n\n" .
-                   "**Punto de venta BridLux:**\n" .
-                   "• Local desde \$7,800 · Nube \$900/mes\n\n" .
-                   "Todos los paquetes web incluyen dominio y hosting 1 año. ¿Cuál te interesa?";
+        if (preg_match('/(paquete|precio|costo|cuanto cuesta|plan|solucion)/i', $lowerMessage)) {
+            return "📦 **Soluciones Base InfiNext:**\n\n" .
+                "**1. Presencia Digital** — Desde \$4,000 MXN\n" .
+                "• Landing page, se adapta a cualquier dispositivo, SEO básico.\n\n" .
+                "**2. Sistemas y Gestión** ⭐ — Desde \$10,000 MXN\n" .
+                "• Desarrollo backend, panel admin, e-commerce, POS.\n\n" .
+                "**3. Innovación NextGen** — A la medida\n" .
+                "• Inteligencia artificial, Visión por Computadora, AR, Gamificación.\n\n" .
+                "*(Cada proyecto es único y se ajusta a tus necesidades).*\n" .
+                "¿Cuál se acerca más a lo que buscas?";
         }
 
         // CONTACTO
         if (preg_match('/(contacto|telefono|whatsapp|email|llamar)/i', $lowerMessage)) {
-            return "📞 **Contacto:**\n\n" .
-                   "**WhatsApp:** 2761334864\n" .
-                   "**Email:** webbridgsolucions@gmail.com\n" .
-                   "**Horario:** Lun-Vie 8AM-6PM\n\n" .
-                   "¡Respuesta en menos de 24h!";
+            return "📞 **Contáctanos directo:**\n\n" .
+                "**WhatsApp / Tel:** 2217596585\n" .
+                "**Email:** infinexttechnologies@gmail.com\n" .
+                "**Horario:** Lun-Vie 8AM-6PM\n\n" .
+                "¡Estamos listos para conectar tu negocio con el mundo digital! 🌐";
         }
 
         // SERVICIOS
         if (preg_match('/(servicio|que hacen|ofrecen)/i', $lowerMessage)) {
-            return "🚀 **Servicios:**\n\n" .
-                   "• Desarrollo web profesional\n" .
-                   "• Sistemas empresariales (CRM/ERP)\n" .
-                   "• Puntos de venta (BridLux POS)\n" .
-                   "• E-commerce completo\n" .
-                   "• Plataformas e-learning\n" .
-                   "• Chatbots con IA\n\n" .
-                   "¿Qué necesitas?";
+            return "🚀 **Servicios Principales:**\n\n" .
+                "• **Desarrollo Web y Sistemas** a la medida (Backend escalable)\n" .
+                "• **Sistemas Específicos** (E-commerce, POS, E-learning)\n" .
+                "• **Visión Artificial e IA** (Detección en tiempo real, automatización)\n" .
+                "• **Realidad Aumentada (AR)** y Gamificación 2D/3D\n" .
+                "• **Consultoría Tecnológica**\n\n" .
+                "¿En qué área te gustaría innovar?";
         }
 
         // SALUDOS
-        if (preg_match('/^(hola|hello|hi|buenos|hey)/', $lowerMessage)) {
-            return "¡Hola! 👋 Soy el asistente de **WebBridge Solutions**.\n\n" .
-                   "Puedo ayudarte con:\n\n" .
-                   "📦 Paquetes y precios\n" .
-                   "🚀 Servicios\n" .
-                   "💼 Proyectos\n" .
-                   "📞 Contacto\n" .
-                   "⏱️ Tiempos\n\n" .
-                   "**¿En qué puedo ayudarte?**";
+        if (preg_match('/^(hola|hello|hi|buenos|hey|que tal)/i', $lowerMessage)) {
+            return "¡Hola! 👋 Soy Nexi, asistente de **InfiNext**.\n\n" .
+                "Puedo ayudarte con:\n\n" .
+                "📦 Paquetes y Soluciones Web\n" .
+                "🤖 Sistemas e IA\n" .
+                "💼 Casos de éxito\n" .
+                "📞 Contacto y Asesoría\n\n" .
+                "**¿En qué puedo ayudarte hoy?**";
         }
 
         // DESPEDIDAS
-        if (preg_match('/(gracias|bye|adios|chao)/i', $lowerMessage)) {
-            return "¡De nada! 😊\n\n" .
-                   "📞 2761334864\n" .
-                   "📧 webbridgsolucions@gmail.com\n\n" .
-                   "¡Excelente día! 🚀";
+        if (preg_match('/(gracias|bye|adios|chao|nos vemos)/i', $lowerMessage)) {
+            return "¡De nada! Fue un placer ayudarte. 😊\n\n" .
+                "Para cualquier duda futura:\n" .
+                "📞 WhatsApp: 2217596585\n" .
+                "📧 infinexttechnologies@gmail.com\n\n" .
+                "¡Que tengas un excelente día! 🚀";
         }
 
         // GENÉRICA
-        return "Hola! 👋 Soy el asistente de **WebBridge Solutions**.\n\n" .
-               "Te ayudo con:\n\n" .
-               "🏢 Sobre nosotros\n" .
-               "📦 Paquetes desde \$4,000\n" .
-               "🚀 Servicios web\n" .
-               "💼 Proyectos\n" .
-               "⏱️ Tiempos\n" .
-               "📞 Contacto: 2761334864\n\n" .
-               "**¿Qué necesitas saber?**";
+        return "¡Hola! 👋 Soy Nexi, asistente IA de **InfiNext**.\n\n" .
+            "Te ayudo con:\n\n" .
+            "🏢 Sobre nosotros\n" .
+            "📦 Soluciones desde \$4,000\n" .
+            "🚀 Integración de IA y Sistemas\n" .
+            "💼 Nuestros Proyectos\n" .
+            "📋 Cotizaciones a la medida\n\n" .
+            "**¿Qué te gustaría saber?**";
     }
 
     private function removeAccents(string $string): string
@@ -490,65 +469,49 @@ class ChatbotControllerGroq extends ResourceController
      * Este es el "cerebro" del chatbot: edita aquí cuando cambien
      * precios, proyectos, servicios o datos de contacto.
      */
-    private function getWebBridgeKnowledge(): string
+    private function getInfinextKnowledge(): string
     {
-        return "Eres el asistente virtual oficial de WebBridge Solutions, empresa mexicana de desarrollo web con sede en Puebla, México. Eres profesional, amigable y orientado a ayudar al cliente a encontrar la solución adecuada.
+        return "Eres Nexi, el asistente virtual oficial de InfiNext, una agencia de innovación tecnológica y desarrollo de software con sede en Puebla, México. Tu personalidad es altamente profesional, innovadora, clara y enfocada en resolver problemas reales para los clientes mediante la tecnología.
 
 DATOS DE CONTACTO:
-- Ubicación: Puebla, México (atendemos todo México)
-- Teléfono/WhatsApp: 2761334864
-- Email: webbridgsolucions@gmail.com
-- Horario: Lunes a Viernes, 8:00 AM - 6:00 PM
+- Ubicación: Puebla, México (atendemos proyectos a nivel nacional e internacional)
+- WhatsApp / Teléfono: 2217596585
+- Email: infinexttechnologies@gmail.com
+- Horario: Lunes a Viernes, 3:00 PM - 9:00 PM
 - Tiempo de respuesta: menos de 24 horas hábiles
 
-PAQUETES DE DESARROLLO WEB (precios en MXN, incluyen dominio, hosting y SSL por 1 año):
-1. WebStart Básico — \$4,000 (sitio de 5 secciones, diseño responsivo, formulario de contacto)
-2. WebPro Intermedio — \$5,500 (8 secciones, panel de administración, chatbot básico)
-3. WebCorp Empresarial — \$8,000 (12 secciones, CRM básico, gestión de usuarios)
-4. WebElite Avanzado — \$10,000 (secciones ilimitadas, chatbot con IA, dashboard analítico) ⭐ el más popular
-5. WebShop E-Commerce — \$15,000 (tienda en línea completa con pagos seguros vía Stripe)
+SOLUCIONES Y PAQUETES BASE (Precios en MXN, los costos finales dependen de los requerimientos):
+1. Presencia Digital — Desde \$4,000 (Landing page corporativa, diseño responsivo, SEO básico, enlaces a WhatsApp/Redes).
+2. Sistemas y Gestión — Desde \$10,000 (Desarrollo backend a la medida, bases de datos, paneles de administración, control de inventarios/usuarios). ⭐ El más solicitado.
+3. Innovación NextGen — Cotización a la medida (Desarrollo con Inteligencia Artificial, Visión por Computadora, Realidad Aumentada, y Gamificación 2D).
 
-BRIDLUX — PUNTO DE VENTA (producto propio):
-- BridLux Local UNICAJA — \$7,800 MXN pago único (incluye hardware completo)
-- BridLux Local PRO — \$10,100 MXN pago único (mayor potencia y rendimiento)
-- BridLux en la Nube — \$900 MXN mensuales (acceso desde cualquier lugar)
-- Procesa ventas, controla inventario en tiempo real, genera tickets y reportes.
-- Más información y solicitudes en la página /bridlux del sitio.
-
-SERVICIOS:
-- Desarrollo web 100% personalizado, programado desde cero (NO usamos plantillas)
-- Sistemas de gestión empresarial (CRM, ERP, control de inventarios)
-- Puntos de venta (POS) locales y en la nube
-- E-commerce con pasarelas de pago seguras (Stripe, transferencias)
-- Plataformas e-learning con cursos en video y control de acceso
-- Chatbots inteligentes con IA integrados a sitios web
-- Mantenimiento y soporte técnico (todos los paquetes incluyen de 6 a 12 meses de soporte)
+SERVICIOS PRINCIPALES:
+- Desarrollo Web y Sistemas a la medida (Arquitecturas backend escalables y seguras).
+- Sistemas especificos (E-commerce, puntos de venta, plataformas de E-learnign).
+- Visión Artificial e IA (Detección de objetos en tiempo real, análisis de datos, automatización inteligente).
+- Realidad Aumentada (AR) (Experiencias inmersivas para educación o marketing).
+- Videojuegos y Entornos Interactivos (Gamificación para capacitación industrial o entretenimiento).
+- Consultoría e Integración Tecnológica.
 
 PROYECTOS DESTACADOS:
-1. Platería Futura — E-commerce de joyería de plata con catálogo interactivo, carrito y pagos con Stripe.
-2. CCA Campus (Centro de Capacitación Automotriz) — Plataforma e-learning con cursos en video, control de acceso de alumnos, pagos con tarjeta y transferencia bancaria. En línea en cca-puebla.com.
-3. Cafetería Universitaria — Sistema de gestión con menú digital, chatbot de pedidos con IA y panel de administración de ventas.
-4. DIES (Diseños Especiales de Seguridad) — Catálogo digital de cajas fuertes con chatbot de atención.
-5. BridLux — Nuestro punto de venta híbrido, usado por comercios locales.
+1. Gestión de Laboratorios (INAOE) — Software de gestión y semi-automatización para el Laboratorio de Iluminación y Eficiencia Eléctrica.
+2. Oasis AR — App móvil educativa con Realidad Aumentada para la enseñanza interactiva de culturas de Oasisamérica.
+3. Car Madness — Videojuego 2D de plataformas y quiz diseñado para la capacitación en seguridad industrial y gestión de calidad.
+4. Sistemas de Visión Artificial — Modelos de tracking de personas en emergencias y detección de baches usando IA.
 
-TECNOLOGÍAS:
-- Backend: PHP 8, CodeIgniter 4, MySQL
-- Frontend: HTML5, CSS3, JavaScript
-- Integraciones: Stripe, APIs REST, IA (Groq), Google OAuth, video streaming
-
-TIEMPOS DE DESARROLLO APROXIMADOS:
-- WebStart: 1-2 semanas · WebPro: 2-3 semanas · WebCorp: 3-4 semanas
-- WebElite: 4-6 semanas · WebShop: 6-8 semanas · Sistemas a medida: según alcance
-- Siempre entregamos un cronograma claro antes de iniciar.
+TECNOLOGÍAS QUE DOMINAMOS:
+- Backend & Web: PHP, CodeIgniter 4, Laravel, Next.js, Inertia, MongoDB, MySQL, JavaScript, HTML5/CSS3.
+- Inteligencia Artificial: YOLO, MediaPipe, OpenCV.
+- Interactividad y 3D: Unity, C#, Vuforia, Blender.
 
 INSTRUCCIONES DE COMPORTAMIENTO:
-- Responde SIEMPRE en el idioma en que te escriba el usuario (español por defecto).
-- Sé claro, conciso y usa formato markdown con negritas y listas cuando ayude.
-- Usa emojis con moderación (1-3 por respuesta).
+- Eres Nexi. Responde SIEMPRE en el idioma en que te escriba el usuario (español por defecto).
+- Sé claro, conciso y usa formato markdown con negritas y listas para facilitar la lectura.
+- Usa emojis con moderación (1-2 por respuesta para mantener un tono profesional).
 - Nunca inventes precios, servicios o proyectos que no estén en esta información.
-- Si no sabes algo, dilo con honestidad e invita a contactar por WhatsApp (2761334864) o email.
-- Si el usuario pide una cotización, cita o quiere que lo contacten, pídele: nombre, email, teléfono (opcional) y detalles del proyecto, e indícale que puede usar el botón 'Solicitar Cotización'.
-- Guía la conversación hacia una solución concreta: recomienda el paquete que mejor encaje con lo que describe el usuario y explica por qué.
-- Mantén las respuestas por debajo de 150 palabras salvo que pidan detalle.";
+- Si no sabes algo, admítelo con profesionalismo e invita a contactar por WhatsApp o email.
+- Si el usuario pide una cotización o quiere iniciar un proyecto, pídele: nombre, email, teléfono (opcional) y detalles del proyecto.
+- Si el cliente busca un sistema de ventas, recomiéndale el paquete 'Sistemas y Gestión'.
+- Mantén las respuestas por debajo de 150 palabras para una lectura rápida.";
     }
 }
