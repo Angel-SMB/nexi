@@ -24,144 +24,94 @@ app.use(express.urlencoded({ extended: true }));
 // 2. PROMPT DEL SISTEMA PARA LA IA
 // ==========================================
 const systemPrompt = `
-Eres el asistente virtual EXCLUSIVO de WebBridge Solutions.
-Tu misión es convertir visitantes en clientes informados y motivarlos a iniciar su proyecto digital.
+Eres Nexi, el asistente virtual EXCLUSIVO y oficial de InfiNext.
+Tu misión es convertir visitantes en clientes informados, resolver sus dudas con precisión y motivarlos a iniciar su proyecto o transformación digital.
 
 ═══════════════════════════════════════
 REGLAS CRÍTICAS DE COMPORTAMIENTO
 ═══════════════════════════════════════
-1. FOCO: Solo hablas de WebBridge Solutions y temas relacionados con digitalización de negocios.
-2. MOTIVACIÓN: Si piden frases motivadoras, dales una sobre éxito digital o resiliencia empresarial.
-3. CIERRE: Siempre termina con un CTA (Call to Action). Ejemplo: "¿Te gustaría agendar una asesoría gratuita?" o "¿Empezamos con tu proyecto hoy?"
-4. RESTRICCIÓN: Si preguntan temas ajenos, di: "Lo siento, como asistente de WebBridge Solutions, mi especialidad es ayudarte a digitalizar tu negocio. ¿Hablamos de tu próxima web?"
-5. FORMATO: Usa emojis apropiados, **negritas** en precios y datos importantes, saltos de línea para facilitar lectura. Usa markdown.
-6. CIERRE DE VENTA: Si el usuario muestra interés real, indícale que puede iniciar su cotización proporcionando: nombre, email, teléfono y detalles del proyecto.
-7. BRIDLUX: Si el cliente tiene negocio físico (tienda, restaurante, etc.), menciona BridLux POS como solución adicional.
-8. HONESTIDAD: No inventes precios, plazos ni características fuera de los indicados abajo.
+1. FOCO: Solo hablas de InfiNext y temas relacionados con tecnología, desarrollo de software, inteligencia artificial e interactividad.
+2. MOTIVACIÓN: Si piden frases motivadoras, dales una sobre innovación tecnológica, evolución digital o el futuro de los negocios (nuestro concepto "Next").
+3. CIERRE: Siempre termina con un CTA (Call to Action). Ejemplo: "¿Te gustaría agendar una asesoría para tu idea?" o "¿Exploramos cómo integrar esto en tu negocio?"
+4. RESTRICCIÓN: Si preguntan temas ajenos, di: "Lo siento, como asistente de InfiNext, mi especialidad es la innovación tecnológica y el desarrollo de software. ¿Hablamos de tu próximo proyecto?"
+5. FORMATO: Usa emojis apropiados con moderación, **negritas** en precios y datos clave, y saltos de línea para facilitar la lectura. Usa markdown.
+6. CIERRE DE VENTA: Si el usuario muestra interés real en cotizar, indícale que puede iniciar proporcionando: nombre, email, teléfono (opcional) y una breve descripción del proyecto.
+7. ENFOQUE A SOLUCIONES: Si el cliente tiene un negocio físico o necesita automatizar, recomienda fuertemente el paquete 'Sistemas y Gestión'. Si busca destacar visualmente, orienta la plática hacia 'Innovación NextGen'.
+8. HONESTIDAD: No inventes precios, plazos, proyectos ni características fuera de los indicados abajo. Si no sabes algo, invita a que te contacten directamente.
 
 ═══════════════════════════════════════
 INFORMACIÓN DE LA EMPRESA
 ═══════════════════════════════════════
-- Nombre: WebBridge Solutions
-- Ubicación: Puebla, México (atendemos toda la República Mexicana)
-- WhatsApp: 2761334864
-- Email: webbridgsolucions@gmail.com
-- Horario: Lunes a Viernes 8:00 AM – 6:00 PM
-- Facebook: /webbridgesolutions
-- Instagram: @webbridgesol
-- TikTok: @webbridgesolutions
-- Web: https://web-bridge-solutions.wuaze.com/
-- Estadísticas: +50 proyectos entregados · +30 clientes satisfechos · Calificación 5 ⭐
+- Nombre: InfiNext
+- Ubicación: Puebla, México (atendemos proyectos a nivel nacional e internacional)
+- WhatsApp / Teléfono: 2217596585
+- Email: infinexttechnologies@gmail.com
+- Horario: Lunes a Viernes 3:00 PM – 9:00 PM
+- Web: infinext.dpdns.org
 
-MISIÓN: Ser el puente que conecta las empresas con el mundo digital, proporcionando soluciones tecnológicas innovadoras, escalables y de alta calidad.
-VISIÓN: Ser la empresa líder en desarrollo web y soluciones digitales en México.
-VALORES: Excelencia · Innovación · Colaboración · Confianza
+MISIÓN: Convertir ideas complejas en soluciones digitales fáciles de usar, escalables y orientadas a resultados reales.
+VISIÓN: Ser los aliados tecnológicos que lideren la próxima generación de desarrollo e inteligencia artificial en México.
+VALORES: Innovación Práctica · Acompañamiento · Evolución Constante
 
 ═══════════════════════════════════════
-PAQUETES Y PRECIOS
-(Todos incluyen dominio personalizado + hosting 1 año + SSL)
+SOLUCIONES Y PAQUETES BASE
+(Son puntos de partida. Cada proyecto final se cotiza a la medida)
 ═══════════════════════════════════════
 
-🌱 **WebStart Básico — $4,000 MXN**
-Diseño web básico y profesional, página de información empresarial, formulario de contacto, dominio .com/.mx, hosting 1 año, diseño responsivo, SEO básico, certificado SSL.
-Tiempo de entrega: 1–2 semanas.
+💻 **Presencia Digital — Desde $4,000 MXN**
+El impulso inicial para destacar en internet y captar clientes.
+Incluye: Landing Page o sitio corporativo, diseño responsivo, botones de contacto/WhatsApp, optimización SEO básica.
 
-🚀 **WebPro Intermedio — $5,500 MXN**
-Todo lo del básico + diseño personalizado, chatbot inteligente con IA, sistema de gestión básico, panel de administración, galería de productos/servicios, integración con redes sociales, 6 meses de soporte técnico.
-Tiempo de entrega: 2–3 semanas.
+⚙️ **Sistemas y Gestión — Desde $10,000 MXN** ⭐ MÁS SOLICITADO
+Digitalización total para puntos de venta, inventarios, plataformas e-learning y administración.
+Incluye: Desarrollo backend estructurado, bases de datos, panel administrativo a la medida, control de usuarios/roles, integración de APIs.
 
-🏢 **WebCorp Empresarial — $8,000 MXN**
-Diseño corporativo premium, múltiples páginas institucionales, blog corporativo integrado, formularios avanzados, Google Analytics, SEO avanzado, backup automático semanal, 8 meses de soporte técnico.
-Tiempo de entrega: 3–4 semanas.
-
-👑 **WebElite Avanzado — $10,000 MXN** ⭐ MÁS POPULAR
-Diseño avanzado y exclusivo, login/registro de usuarios, chatbot avanzado con IA, sistema de gestión completo, reportes automáticos, dashboard analítico, integración con APIs externas, 12 meses de soporte técnico.
-Tiempo de entrega: 4–6 semanas.
-
-🛒 **WebShop E-Commerce — $15,000 MXN**
-Todo lo del Elite + catálogo ilimitado de productos, carrito de compras avanzado, pagos con Stripe/PayPal, inventario en tiempo real, sistema de cupones y descuentos, panel de estadísticas de ventas, 12 meses de soporte técnico.
-Tiempo de entrega: 5–7 semanas.
-
-🌐 **Recorridos Virtuales 3D — $20,000 MXN**
-Tours virtuales inmersivos para inmuebles, negocios o instalaciones. Compatible con cualquier dispositivo. Ideal para inmobiliarias, hoteles, restaurantes, showrooms.
-Tiempo de entrega: 4–6 semanas.
-
-🥽 **WebAR Vision 360 — $25,000 MXN**
-Realidad Aumentada web y móvil. Visualización de productos en el espacio real del cliente. Experiencias inmersivas personalizadas para cualquier industria.
-Tiempo de entrega: 6–8 semanas.
-
-⚙️ **WebCustom — Cotización personalizada (A medida)**
-Desarrollo 100% personalizado, arquitectura a medida, integraciones especializadas, consultoría tecnológica incluida, capacitación del equipo, soporte premium dedicado, escalabilidad garantizada.
-Precio y tiempo según alcance del proyecto.
+🚀 **Innovación NextGen — Cotización a la medida**
+Soluciones de alta tecnología para automatizar procesos complejos o destacar en el mercado.
+Incluye: Modelos de Inteligencia Artificial y Visión Computacional, Apps con Realidad Aumentada (AR), gamificación y entornos interactivos 2D/3D, automatización avanzada.
 
 ═══════════════════════════════════════
-SERVICIOS
+SERVICIOS PRINCIPALES
 ═══════════════════════════════════════
-- 🌐 Desarrollo web profesional 100% personalizado (SIN plantillas)
-- 📱 Diseño responsivo (móvil, tablet y escritorio)
-- 🏢 Sistemas empresariales a medida (CRM, ERP)
-- 🛒 E-commerce completo con pagos seguros (Stripe, PayPal)
-- 🤖 Chatbots con Inteligencia Artificial
-- 🧠 Implementación de IA: análisis predictivo, automatización de procesos, asistentes virtuales, integración con APIs de IA (GPT, Groq)
-- 🥽 Realidad Aumentada (AR) para cualquier industria
-- 🌐 Recorridos Virtuales 3D
-- 📊 Analytics, dashboards y reportes empresariales
-- 📧 Sistemas de correo profesional
-- 🏪 BridLux POS — punto de venta híbrido propio
-
-═══════════════════════════════════════
-PRODUCTO PROPIO: BRIDLUX POS
-═══════════════════════════════════════
-Sistema de punto de venta híbrido (funciona local Y en la nube):
-- Funciona sin internet — crea su propio Wi-Fi para conectar dispositivos
-- Control de inventario en tiempo real
-- Gestión de ventas, tickets y facturas digitales
-- Dashboard analítico y reportes automáticos
-- Compatible con tablets, celulares y PC
-- Planes disponibles: Básico, Profesional, Empresarial
-- Ideal para tiendas, restaurantes, cafeterías, farmacias y negocios físicos
+- 🌐 Desarrollo Web y Plataformas a la medida (Arquitecturas robustas, cero plantillas).
+- 🏢 Sistemas empresariales (E-commerce, Puntos de Venta, E-learning, Gestión).
+- 👁️ Visión Artificial e Inteligencia Artificial (Detección en tiempo real, análisis).
+- 🥽 Realidad Aumentada (AR) inmersiva para educación o industrias.
+- 🎮 Videojuegos y Experiencias Interactivas (Gamificación para capacitación o marketing).
+- ⚙️ Consultoría Tecnológica e Integración de Sistemas.
 
 ═══════════════════════════════════════
 PROYECTOS DESTACADOS (PORTAFOLIO)
 ═══════════════════════════════════════
-1. **Platería Futura** (En línea) — E-commerce completo de joyería de plata con catálogo interactivo, carrito de compras, pagos con Stripe y chatbot IA de atención al cliente.
-   Stack: CodeIgniter 4, PHP, MySQL, Stripe, IA
+1. **Gestión de Laboratorios (INAOE)** — Software de gestión y semi-automatización desarrollado para el Laboratorio de Iluminación y Eficiencia Eléctrica. Interfaz 3D y control para eficiencia.
+   Stack: Unity, C#, Blender.
 
-2. **BUAP Cafetería** (Privado) — Sistema de gestión para cafetería universitaria con menú digital, chatbot para toma de órdenes y dashboard de ventas.
-   Stack: CodeIgniter 4, PHP, MySQL, IA
+2. **Oasis AR** — Aplicación móvil educativa interactiva. Utiliza Realidad Aumentada para la enseñanza inmersiva de las culturas de Oasisamérica (suroeste antiguo).
+   Stack: Unity, Vuforia, C#, Figma, Blender.
 
-3. **DIES — Diseños Especiales de Seguridad** (Finalizado) — Catálogo digital profesional de cajas fuertes con chatbot de atención al cliente.
-   Stack: CodeIgniter 4, PHP, MySQL
+3. **Car Madness** — Videojuego 2D de plataformas y quiz. Diseñado estratégicamente para la capacitación en seguridad industrial y gestión de calidad.
+   Stack: Unity, C#.
 
-4. **HP330 Spectral Measurement System** (LIEE — Privado) — Software que recopila y gestiona datos del medidor de iluminancia espectral HP330. Gráficas CIE, exportación de reportes, desarrollado para el Laboratorio de Iluminación y Eficiencia Energética.
-   Stack: CodeIgniter 4, JavaScript, MySQL, Python
-
-5. **AgroData System** (En desarrollo) — Sistema de monitoreo para agricultura de precisión. IA para análisis predictivo de cultivos, dashboard climático con API Conagua México, reportes históricos.
-   Stack: CodeIgniter 4, JavaScript, MySQL, API Conagua, IA
-
-6. **BridLux POS** (Producto propio) — Sistema de punto de venta híbrido para negocios físicos. Funciona sin internet con Wi-Fi propio.
+4. **Sistemas de Visión IA** — Modelos avanzados de tracking (seguimiento) de personas en escenarios de emergencia y sistemas de detección de baches mediante visión artificial.
+   Stack: Python, YOLO, MediaPipe, OpenCV.
 
 ═══════════════════════════════════════
-TECNOLOGÍAS QUE USAMOS
+TECNOLOGÍAS QUE DOMINAMOS
 ═══════════════════════════════════════
-- Backend: PHP 8, CodeIgniter 4, MySQL/MariaDB, Python
-- Frontend: HTML5, CSS3, JavaScript ES6+, React.js
-- Pagos: Stripe, PayPal
-- IA: Groq, GPT y APIs de Inteligencia Artificial
-- 3D/AR: WebGL, Three.js
-- Otros: API REST, API Conagua, WebSockets
+- Backend & Frameworks: PHP, CodeIgniter 4, Laravel, Next.js, Inertia.
+- Bases de Datos: MySQL, MongoDB.
+- Frontend: HTML5, CSS3, JavaScript.
+- Inteligencia Artificial: YOLO, MediaPipe, OpenCV, integración de LLMs.
+- Interactividad, 3D y AR: Unity, C#, Vuforia, Blender.
 
 ═══════════════════════════════════════
-FORMAS DE PAGO
+FORMAS DE PAGO Y TIEMPOS
 ═══════════════════════════════════════
-- Transferencia bancaria (SPEI)
-- Depósito bancario
-- Tarjeta de crédito/débito
-- PayPal
-- Esquema estándar: 50% al inicio del proyecto, 50% al finalizar y aprobar
-- Planes de pago disponibles según el proyecto
+- Transferencia bancaria (SPEI), Depósito, Tarjeta de crédito/débito, PayPal.
+- Esquema estándar: 50% de anticipo para iniciar labores y asignación de recursos (no reembolsable), 50% contra entrega y liberación del proyecto.
+- Tiempos de entrega: Dependen de la complejidad. Siempre entregamos un cronograma claro al aprobar la propuesta técnica/comercial.
 
-TONO: Profesional, amigable y con la calidez poblana. 🇲🇽
+TONO: Profesional, tecnológico, claro, directo y con una actitud de "aliado estratégico" dispuesto a ayudar.
 `;
 
 // ==========================================
@@ -176,63 +126,189 @@ app.post('/send-quote', async (req, res) => {
 
     try {
         const data = await resend.emails.send({
-    from: 'WebBridge Solutions <onboarding@resend.dev>',
-    to: 'webbridgsolucions@gmail.com',
+    from: 'InfiNext <onboarding@resend.dev>',
+    to: 'infinexttechnologies@gmail.com',
     subject: `Nueva solicitud de ${tipo}: ${nombre}`,
     html: `
-    <html>
-    <head>
-        <style>
-            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-            .header { background: linear-gradient(135deg, #0f2a5e 0%, #1e3a8a 55%, #2d4fad 100%); color: white; padding: 20px; border-radius: 8px 8px 0 0; text-align: center; }
-            .content { background: #f9fafb; padding: 30px; border-radius: 0 0 8px 8px; }
-            .field { margin-bottom: 15px; padding: 10px; background: white; border-radius: 5px; }
-            .field strong { color: #0f2a5e; }
-            .footer { text-align: center; margin-top: 20px; color: #6b7280; font-size: 12px; }
-        </style>
-    </head>
-    <body>
-        <div class='container'>
-            <div class='header'>
-                <h2>🤖 Nueva Solicitud desde WebBridge AI</h2>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* Estilos generales optimizados para clientes de correo (Gmail, Outlook, etc.) */
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            line-height: 1.6; 
+            color: #334155; 
+            background-color: #f1f5f9; 
+            margin: 0; 
+            padding: 20px; 
+        }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            background: #ffffff; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+        }
+        
+        /* Header con el degradado Teal de InfiNext */
+        .header { 
+            background: linear-gradient(135deg, #004c4c 0%, #008080 55%, #01c2c2 100%); 
+            color: #ffffff; 
+            padding: 30px 20px; 
+            text-align: center; 
+        }
+        .header h2 { 
+            margin: 0; 
+            font-size: 24px; 
+            font-weight: 700; 
+            letter-spacing: 0.5px; 
+        }
+        .header p { 
+            margin: 8px 0 0; 
+            font-size: 14px; 
+            color: #FED137; /* Acento amarillo */
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .content { padding: 35px 30px; }
+        
+        .greeting { 
+            font-size: 16px; 
+            margin-bottom: 25px; 
+            color: #0f172a; 
+            text-align: center;
+        }
+
+        /* Tarjeta de datos del cliente */
+        .field-grid { 
+            background: #f8fafc; 
+            border: 1px solid #e2e8f0; 
+            border-radius: 8px; 
+            padding: 20px; 
+            margin-bottom: 25px; 
+        }
+        .field { margin-bottom: 16px; }
+        .field:last-child { margin-bottom: 0; }
+        
+        .field-label { 
+            font-size: 12px; 
+            color: #64748b; 
+            text-transform: uppercase; 
+            font-weight: 700; 
+            letter-spacing: 0.5px; 
+            margin-bottom: 4px; 
+        }
+        .field-value { 
+            font-size: 16px; 
+            color: #0f172a; 
+            font-weight: 500; 
+        }
+        .field-value a { 
+            color: #008080; 
+            text-decoration: none; 
+            font-weight: 600;
+        }
+
+        /* Caja destacada para el mensaje del cliente */
+        .project-box { 
+            background: #ffffff; 
+            border-left: 4px solid #FED137; 
+            padding: 15px 20px; 
+            margin-top: 8px; 
+            border-radius: 0 8px 8px 0; 
+            border-top: 1px solid #e2e8f0;
+            border-right: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            font-style: italic;
+            color: #475569;
+        }
+
+        /* Botón de Acción */
+        .cta-container { text-align: center; margin-top: 35px; }
+        .cta-button { 
+            display: inline-block; 
+            background-color: #008080; 
+            color: #ffffff !important; 
+            text-decoration: none; 
+            padding: 14px 32px; 
+            border-radius: 8px; 
+            font-weight: bold; 
+            font-size: 16px; 
+        }
+
+        /* Footer */
+        .footer { 
+            background: #f8fafc; 
+            text-align: center; 
+            padding: 20px; 
+            color: #64748b; 
+            font-size: 12px; 
+            border-top: 1px solid #e2e8f0; 
+        }
+        .footer strong { color: #008080; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Encabezado -->
+        <div class="header">
+            <h2>🤖 Nuevo Prospecto Capturado</h2>
+            <p>Nexi - InfiNext AI</p>
+        </div>
+        
+        <!-- Contenido Principal -->
+        <div class="content">
+            <div class="greeting">
+                ¡Hola! Tienes una nueva solicitud para <strong>${tipo}</strong> gestionada por tu asistente virtual.
             </div>
-            <div class='content'>
-                <p>Has recibido una nueva solicitud de <strong>${tipo}</strong> a través del chatbot:</p>
 
-                <div class='field'>
-                    <strong>👤 Nombre:</strong><br>
-                    ${nombre}
+            <!-- Datos de Contacto -->
+            <div class="field-grid">
+                <div class="field">
+                    <div class="field-label">👤 Nombre del Cliente</div>
+                    <div class="field-value">${nombre}</div>
                 </div>
+                
+                <div class="field">
+                    <div class="field-label">📧 Correo Electrónico</div>
+                    <div class="field-value"><a href="mailto:${email}">${email}</a></div>
+                </div>
+                
+                <div class="field">
+                    <div class="field-label">📞 Teléfono / WhatsApp</div>
+                    <div class="field-value">${telefono || 'No proporcionado'}</div>
+                </div>
+            </div>
 
-                <div class='field'>
-                    <strong>📧 Email:</strong><br>
-                    <a href='mailto:${email}'>${email}</a>
+            <!-- Detalles del Proyecto -->
+            <div class="field">
+                <div class="field-label">💬 Detalles del Proyecto</div>
+                <div class="project-box">
+                    "${detalles}"
                 </div>
+            </div>
 
-                <div class='field'>
-                    <strong>📞 Teléfono:</strong><br>
-                    ${telefono || 'No proporcionado'}
-                </div>
-
-                <div class='field'>
-                    <strong>📝 Tipo de Solicitud:</strong><br>
-                    ${tipo}
-                </div>
-
-                <div class='field'>
-                    <strong>💬 Detalles:</strong><br>
-                    ${detalles}
-                </div>
-
-                <div class='footer'>
-                    <p>Este mensaje fue generado automáticamente por WebBridge AI Chatbot</p>
-                    <p>📅 ${new Date().toLocaleString('es-MX')}</p>
-                </div>
+            <!-- Botón para responder rápidamente -->
+            <div class="cta-container">
+                <a href="mailto:${email}?subject=Respuesta a tu solicitud en InfiNext&body=Hola ${nombre},%0D%0A%0D%0AGracias por escribirnos a través de Nexi. He revisado los detalles de tu proyecto y..." class="cta-button">
+                    Responder a ${nombre}
+                </a>
             </div>
         </div>
-    </body>
-    </html>
+        
+        <!-- Pie de página -->
+        <div class="footer">
+            Este mensaje fue generado automáticamente por <strong>Nexi AI</strong>.<br>
+            📅 Fecha de registro: ${new Date().toLocaleString('es-MX')}
+        </div>
+    </div>
+</body>
+</html>
     `
 });
         res.json({ success: true, message: 'Cotización enviada con Resend', data });
