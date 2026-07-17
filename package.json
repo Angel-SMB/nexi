@@ -1,5 +1,5 @@
 {
-  "name": "webbridge-ai-service",
+  "name": "nexi-ai-service",
   "version": "1.0.0",
   "description": "API para Chatbot Anthropic",
   "main": "index.js",
