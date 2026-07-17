@@ -404,4 +404,4 @@ app.post('/translate-bridge', async (req, res) => {
 // 5. INICIALIZACIÓN DEL SERVIDOR
 // ==========================================
 const PORT = process.env.PORT || 10000;
-app.listen(PORT, () => console.log(`Servidor Groq WebBridge listo en puerto ${PORT}`));
+app.listen(PORT, () => console.log(`Servidor Groq Infinext listo en puerto ${PORT}`));
